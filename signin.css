@@ -1,0 +1,65 @@
+:root{
+    --main-background-color: #F1F6F9;
+    --main-popout-color: #9BA4B4;
+}
+
+* {
+    background-color: var(--main-background-color);
+    padding: 0em;
+    margin: 0 0.2em 0 0.2em;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--main-background-color); 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    border-radius: 25px;
+    background: #a7abb3; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #84878d;
+  }
+
+.container {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.2fr;
+    grid-template-rows: 4.5em 55em 20em 30em 4.5em;
+    gap: 1em 0em;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header header header"
+      "content content content"
+      "side-scroll-menu side-scroll-menu side-scroll-menu"
+      "category-menu category-menu category-menu"
+      "footer footer footer";
+  }
+  .header { grid-area: header; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; background-color: var(--main-popout-color);}
+  
+  .content { grid-area: content; border-radius: 5px; background-color: var(--main-popout-color);}
+  
+  .side-scroll-menu {
+    display: grid;
+    grid-auto-columns: 30em;
+    grid-template-rows: 1fr;
+    gap: 0em 1em;
+  }
+
+  .scroll-element-1 { grid-column: 1; border-radius: 5px; background-color: var(--main-popout-color);}
+  .scroll-element-2 { grid-column: 2; border-radius: 5px; background-color: var(--main-popout-color);}
+  .scroll-element-3 { grid-column: 3; border-radius: 5px; background-color: var(--main-popout-color);}
+  .scroll-element-4 { grid-column: 4; border-radius: 5px; background-color: var(--main-popout-color);}
+  .scroll-element-5 { grid-column: 5; border-radius: 5px; background-color: var(--main-popout-color);}
+  .scroll-element-6 { grid-column: 6; border-radius: 5px; background-color: var(--main-popout-color);}
+  .scroll-element-7 { grid-column: 7; border-radius: 5px; background-color: var(--main-popout-color);}
+  
+  .category-menu { grid-area: category-menu; border-radius: 5px; background-color: var(--main-popout-color);}
+  
+  .footer { grid-area: footer; border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: var(--main-popout-color);}
+  
