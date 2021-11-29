@@ -1,8 +1,7 @@
 :root{
     --main-background-color: #ffffff;
-    --main-popout-color: #4d4d4d;
-    --element-border: 5px;
-    --outer-margin-values: 0em 16em 0em 16em;
+    --main-popout-color: #1f2b3b;
+    --element-border: 1.2vh;
 }
 
 * {
@@ -10,161 +9,246 @@
     padding: 0px;
     margin: 0px;
     font-family: sans-serif;
-    height:100%;
+    overflow-x:hidden;
+}
+
+::-webkit-scrollbar {
+  width: 1vh;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-background-color); 
+}
+ 
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #9194a0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7e808b;
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 0.2fr 2.6fr 0.2fr;
-    gap: 1em 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "header header"
-      "content content"
-      "footer footer";
-  }
-  
-  .header { grid-area: header; background-color: var(--main-popout-color);}
-  
-  .content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0em 5em;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "images productInfo";
-    grid-area: content;
-    margin: var(--outer-margin-values);
-    height: 45em;
-  }
-  
-  .images {
-    display: grid;
-    grid-template-rows: 2fr 0.5fr;
-    gap: 1em 0em;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "mainImage"
-      "smallImages";
-    grid-area: images;
-  }
-  
-  .mainImage { grid-area: mainImage; background-color: var(--main-popout-color); border-radius: var(--element-border);}
-  
-  .smallImages { 
-    display: grid;
-    grid-auto-columns: 1fr, 1fr, 1fr;
-    gap: 0em 1em;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "smallImage-1 smallImage-2 smallImage-3";
-    grid-area: smallImages;
-    }
-
-.smallImage-1 { grid-area: smallImage-1; background-color: var(--main-popout-color); border-radius: var(--element-border);}
-.smallImage-2 { grid-area: smallImage-2; background-color: var(--main-popout-color); border-radius: var(--element-border);}
-.smallImage-3 { grid-area: smallImage-3; background-color: var(--main-popout-color); border-radius: var(--element-border);}
-  
-  .productInfo {
-    display: grid;
-    grid-template-rows: 2fr 0.5fr;
-    gap: 1em 0px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "info"
-      "price";
-    grid-area: productInfo;
-  }
-  
-  .info { grid-area: info;}
-
-  .price { grid-area: price; line-height: 2em;}
-
-  .priceFont{
-    height:auto;
-    font-size: 1.6em;
-    color: #707070;
-  }
-  .stockFont{
-    height:auto;
-    font-size: 1em;
-    color: #707070;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 2.6fr 0.2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "header"
+    "content"
+    "footer";
+  height: 108vh;
 }
 
-  .purchaseBtn{
-    width: 12em;
-    height: 3em;
-    border: 2px solid #707070;
-    border-radius: var(--element-border);
-    background-color: #707070;
-    color: #fff;
-    margin-right: 1.5em;
-    margin-bottom: 0.8em;
-    font-size: 1em;
-  }
-  .cartBtn{
-    width: 12em;
-    height: 3em;
-    border: 2px solid #707070;
-    border-radius: var(--element-border);
-    background-color: #fff;
-    color: #707070;
-    font-size: 1em;
+.header { grid-area: header; background-color: var(--main-popout-color);}
+
+.footer { 
+  grid-area: footer; 
+  background-color: var(--main-popout-color); 
+  position: absolute; 
+  bottom: -10vh; 
+  height: 5vh; 
+  width: 100%;
+}
+
+.content {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 100%;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+  "pImage"
+  "pInfo";
+  grid-area: content;
+  margin-top: 3vh;
+  margin-right: 3vh;
+  margin-left: 3vh;
+  height: 100%;
+}
+
+.pImage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 0fr;
+  gap: 1vh 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "largeImage largeImage largeImage"
+    "largeImage largeImage largeImage"
+    "smallImages smallImages smallImages";
+  grid-area: pImage;
+  height: 45vh;
+}
+
+.largeImage { 
+  grid-area: largeImage; 
+  background-color: var(--main-popout-color); 
+  border-radius: var(--element-border);
+  height: 100%;
+}
+
+.smallImages {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 9vh;
+  gap: 0px 2vh;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "small-Image-1 small-Image-2 small-Image-3";
+  grid-area: smallImages;
+  height: 12vh;
+}
+
+.smallImages > div {
+  background-color: var(--main-popout-color);
+  border-radius: var(--element-border);
+}
+
+.small-Image-1 { grid-area: small-Image-1;}
+
+.small-Image-2 { grid-area: small-Image-2;}
+
+.small-Image-3 { grid-area: small-Image-3;}
+
+.pInfo {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.525fr 0.5fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "titleDescription"
+    "purchaseCartPriceStock";
+  grid-area: pInfo;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+.pTitle {
+  height: auto;
+  font-size: 1.6em;
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
+.pDescription {
+  height: auto;
+  font-size: 1em;
+}
+
+.titleDescription { grid-area: titleDescription;}
+
+.purchaseCartPriceStock { 
+  grid-area: purchaseCartPriceStock; 
+  overflow-y:hidden;
+  margin-top: 5vh;
+  height: fit-content;
+}
+
+.price{
+  height: auto;
+  font-size: 1.2em;
+}
+.stock{
+  height: auto;
+  font-size: 1.2em;
+}
+
+.purchaseBtn{
+  width: 12em;
+  height: 3em;
+  border: 2px solid #363636;
+  border-radius: var(--element-border);
+  background-color: var(--main-popout-color);
+  color: #fff;
+  margin-right: 1.5em;
+  font-size: 1em;
+}
+.cartBtn{
+  width: 12em;
+  height: 3em;
+  border: 2px solid var(--main-popout-color);
+  border-radius: var(--element-border);
+  background-color: #fff;
+  color: var(--main-popout-color);
+  font-size: 1em;
 }
 
 .purchaseBtn:hover {
-    animation-name: purchaseBtnColor;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards; 
+  animation-name: purchaseBtnColor;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards; 
 }
 
 .cartBtn:hover {
-    animation-name: cartBtnColor;
-    animation-duration: 0.5s;
-    animation-fill-mode: forwards; 
+  animation-name: cartBtnColor;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards; 
 }
 
 @keyframes purchaseBtnColor{
-    0%{background-color: #707070; color: #fff;}
-    100% {background-color: #4f9b31; color: #fff;}
+  0%{background-color: var(--main-popout-color); color: #fff;}
+  100% {background-color: #4f9b31; color: #fff;}
 }
 
 @keyframes cartBtnColor{
-    0%{background-color: #fff; color: #707070;}
-    100% {background-color: #4f9b31; color: #fff;}
+  0%{background-color: #fff; color: var(--main-popout-color);}
+  100% {background-color: #4f9b31; color: #fff;}
 }
 
-  
-  .footer { grid-area: footer; background-color: var(--main-popout-color);}
-  
-  ::-webkit-scrollbar {
-    width: 11px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: var(--main-background-color); 
-  }
-   
-  ::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: #a7a7a7; 
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #8f8f8f;
-  }
 
+.other { grid-area: other; background-color: yellow;}
 
-  ::-webkit-scrollbar:horizontal {
-    height: 9px;
+@media only screen and (min-width: 1025px) {
+  .content {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 50vh 50vh;
+    gap: 0px 10vh;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "pImage pInfo";
+    grid-area: content;
+    margin-top: 15vh;
+    margin-bottom: 0vh;
+    height: auto;
   }
-
-  ::-webkit-scrollbar-thumb:hover:horizontal {
-    background: #8f8f8f;
+  .container{
+    height:100vh;
   }
-
-  ::-webkit-scrollbar-thumb:horizontal {
-    border-radius: 5px;
-    background: #aaaaaa; 
+  .pImage {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0fr 0.5fr 0.5fr;
+    gap: 1vh 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "largeImage largeImage largeImage"
+      "largeImage largeImage largeImage"
+      "smallImages smallImages smallImages";
+    grid-area: pImage;
   }
+  .pInfo {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.525fr 0.5fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "titleDescription"
+      "purchaseCartPriceStock";
+    grid-area: pInfo;
+  }
+  .footer { 
+    grid-area: footer; 
+    background-color: var(--main-popout-color); 
+    position: absolute; 
+    bottom: 0; 
+    height: 5vh; 
+    width: 100%;
+  }
+}
