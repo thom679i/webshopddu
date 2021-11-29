@@ -11,10 +11,6 @@
     margin: 0px;
 }
 
-body{
-  overflow-y: hidden;
-}
-
 .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -131,8 +127,5 @@ body{
       grid-template-rows: 1fr;
       gap: 0em 1em;
       margin: var(--outer-margin-values);
-    }
-    body{
-      overflow-y: visible;
     }
   }
