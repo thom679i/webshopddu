@@ -1,0 +1,138 @@
+:root{
+    --main-background-color: #ffffff;
+    --main-popout-color: #1f2b3b;
+    --element-border: 5px;
+    --outer-margin-values: 0 0.6em 0 0.6em;
+}
+* {
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 20vh fit-content 20vh;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header"
+      "content"
+      "footer";
+  }
+  
+  .header { 
+      grid-area: header; 
+      background-color: var(--main-popout-color);
+      height: 7vh;
+    }
+  
+  .footer { 
+      grid-area: footer; 
+      background-color: var(--main-popout-color);
+      bottom: 0;
+      width: 100%;
+      height: 7vh;
+    }
+  
+    .content {
+        display: grid; 
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr, 1fr;
+        gap: 0px 0px; 
+        grid-template-areas: 
+        "billing1"
+        "billing2";
+        grid-area: content;
+        place-self: center;
+    }
+    .bTitle{
+        height: auto;
+        font-size: 5vh;
+        font-weight: bold;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+    }
+    .checkoutInputs > p {
+        margin-top: 2vh;
+        margin-bottom: 0.2vh;
+        font-size: 2.7vh;
+    }
+    .checkoutInputs > input {
+        border-radius: 0.5vh;
+        border: solid 0.2vh black;
+        font-size: 2.5vh;
+        height: 3.5vh;
+        width: 75vw;
+        padding-left: 1vw;
+    }
+  
+  .billing1 { 
+      grid-area: billing1;
+      display: grid;
+    }
+    .billing2 { 
+        grid-area: billing2;
+        display: grid;
+    }
+    .purchaseBtn{
+        width: 100%;
+        height: 3em;
+        border: 2px solid #363636;
+        border-radius: var(--element-border);
+        background-color: var(--main-popout-color);
+        color: #fff;
+        font-size: 1.2em;
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+      }
+      .purchaseBtn:hover {
+        animation-name: purchaseBtnColor;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards; 
+      }
+      @keyframes purchaseBtnColor{
+        0%{background-color: var(--main-popout-color); color: #fff;}
+        100% {background-color: #4f9b31; color: #fff;}
+      }
+
+      @media only screen and (min-width: 1025px) {
+        .content {
+            display: grid; 
+            grid-template-columns: 1fr, 1fr;
+            grid-template-rows: 1fr;
+            gap: 0px 0px; 
+            grid-template-areas: 
+            "billing1 billing2"; 
+            grid-area: content;
+            height: 86vh;
+        }
+        .checkoutInputs > input {
+            border-radius: 0.5vh;
+            border: solid 0.2vh black;
+            font-size: 2.5vh;
+            height: 3.5vh;
+            width: 15vw;
+            padding-left: 0.3vw;
+        }
+        .billing1 { 
+            grid-area: billing1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 24vw;
+            margin-left: 25vw;
+            margin-bottom: 9.2vw;
+          }
+          .billing2 { 
+              grid-area: billing2;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 24vw;
+              margin-right: 25vw
+          }
+          .purchaseBtn {
+              width: 100%;
+          }
+      }
