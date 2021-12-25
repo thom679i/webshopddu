@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="adminPanel.css">
     <meta charset="UTF-8">
@@ -7,15 +8,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Theta Watches APanel</title>
 </head>
+
 <body>
     <div class="container">
         <div class="sidebar">
             <p>Admin Dashboard</p>
             <hr>
             <div>
-                <a href="adminPanel.html"><div><p>Product Overview</p></div></a>
-                <a href="1"><div><p>Statistic Overview</p></div></a>
-                <a href="1"><div><p>Terms of Service</p></div></a>
+                <a href="adminPanel.html">
+                    <div>
+                        <p>Product Overview</p>
+                    </div>
+                </a>
+                <a href="1">
+                    <div>
+                        <p>Statistic Overview</p>
+                    </div>
+                </a>
+                <a href="1">
+                    <div>
+                        <p>Terms of Service</p>
+                    </div>
+                </a>
             </div>
         </div>
         <p class="pageTitle">Product Overview</p>
@@ -193,38 +207,38 @@
             </div>
 
         </div>
-      </div>
-      <script>
-		const cards = document.querySelectorAll('.editBtn');
+    </div>
+    <script>
+        const cards = document.querySelectorAll('.editBtn');
 
-		const toggleExpansion = (element, to, duration = 350) => {
-		  return new Promise((res) => {
-		    element.animate([
-		      {
-			top: to.top,
-			left: to.left,
-			width: to.width,
-			height: to.height
-		      }
-		    ], {duration, fill: 'forwards', ease: 'ease-in'})
-		    setTimeout(res, duration);
-		  })
-		}
+        const toggleExpansion = (element, to, duration = 350) => {
+            return new Promise((res) => {
+                element.animate([
+                    {
+                        top: to.top,
+                        left: to.left,
+                        width: to.width,
+                        height: to.height
+                    }
+                ], { duration, fill: 'forwards', ease: 'ease-in' })
+                setTimeout(res, duration);
+            })
+        }
 
-		const fadeContent = (element, opacity, duration = 300) => {
-			return new Promise(res => {
-				[...element.children].forEach((child) => {
-					requestAnimationFrame(() => {
-						child.style.transition = `opacity ${duration}ms linear`;
-						child.style.opacity = opacity;
-					});
-				})
-				setTimeout(res, duration);
-			})
-		}
+        const fadeContent = (element, opacity, duration = 300) => {
+            return new Promise(res => {
+                [...element.children].forEach((child) => {
+                    requestAnimationFrame(() => {
+                        child.style.transition = `opacity ${duration}ms linear`;
+                        child.style.opacity = opacity;
+                    });
+                })
+                setTimeout(res, duration);
+            })
+        }
 
-		const getCardContent = (title, type) => {
-			return `
+        const getCardContent = (title, type) => {
+            return `
 				<div class="card-content">
 					<h2>Edit Product Details</h2>
                     <div>
@@ -242,12 +256,12 @@
                             <p>Brand: </p>
                             <input class="nameBrandPriceInputs" type="text">
                             <p>Price: </p>
-                            <input class="nameBrandPriceInputs" type="text">
-                            <p>Description: </p>
+                            <input class="nameBrandPriceInputs" type="number">
+                            <p>Description (Max: 400 chars): </p>
                             <textarea class="description" maxlength="400"></textarea>
                         </div>
-                        <div>
-                            <button class=""></button>
+                        <div class="confirmEditCenter">
+                            <button class="confirmEdit">Confirm Edit</button>
                         </div>
                     </div>
 				</div>
@@ -255,7 +269,7 @@
                     .card-content {
                         color:white;
                         padding: 3vh;
-                        border: 5px solid #3f597a;
+                        border: 7px solid #3f597a;
                         cursor: default;
                         background-color: #1f2b3b;
                     }
@@ -301,30 +315,46 @@
                         height: 200px;
                         background-color: #1a385f;
                     }
+                    .confirmEdit {
+                        width: 50%;
+                        height: auto;
+                        font-size: 2vh;
+                        padding: 1vh;
+                        border-radius: 0.5vh;
+                        border: none;
+                        background-color: #0c7e28;
+                        color: white;
+                        cursor: pointer;
+                    }
+                    .confirmEditCenter {
+                        display: flex;
+                        justify-content: center;
+                        margin-top: 2vh;
+                    }
                 </style>
 			`;
-		}
+        }
 
-		const onCardClick = async (e) => {
-			const card = e.currentTarget;
-			// clone the card
-			const cardClone = card.cloneNode(true);
-			// get the location of the card in the view
-			const {top, left, width, height} = card.getBoundingClientRect();
-			// position the clone on top of the original
-			cardClone.style.position = 'fixed';
-			cardClone.style.top = top + 'px';
-			cardClone.style.left = left + 'px';
-			cardClone.style.width = width + 'px';
-			cardClone.style.height = height + 'px';
-			// hide the original card with opacity
-			card.style.opacity = '0';
-			// add card to the same container
-			card.parentNode.appendChild(cardClone);
-			// create a close button to handle the undo
-			const closeButton = document.createElement('button');
-			// position the close button top corner
-			closeButton.style = `
+        const onCardClick = async (e) => {
+            const card = e.currentTarget;
+            // clone the card
+            const cardClone = card.cloneNode(true);
+            // get the location of the card in the view
+            const { top, left, width, height } = card.getBoundingClientRect();
+            // position the clone on top of the original
+            cardClone.style.position = 'fixed';
+            cardClone.style.top = top + 'px';
+            cardClone.style.left = left + 'px';
+            cardClone.style.width = width + 'px';
+            cardClone.style.height = height + 'px';
+            // hide the original card with opacity
+            card.style.opacity = '0';
+            // add card to the same container
+            card.parentNode.appendChild(cardClone);
+            // create a close button to handle the undo
+            const closeButton = document.createElement('button');
+            // position the close button top corner
+            closeButton.style = `
 				position: fixed;
 				z-index: 10000;
 				top: 35px;
@@ -335,40 +365,50 @@
                 border: 1px solid black;
 				background-color: #b31212;
 			`;
-			// attach click event to the close button
-			closeButton.addEventListener('click', async () => {
-				// remove the button on close
-				closeButton.remove();
-				// remove the display style so the original content is displayed right
-				cardClone.style.removeProperty('display');
-				cardClone.style.removeProperty('padding');
-				// show original card content
-				[...cardClone.children].forEach(child => child.style.removeProperty('display'));
-				fadeContent(cardClone, '0');
-				// shrink the card back to the original position and size
-				await toggleExpansion(cardClone, {top: `${top}px`, left: `${left}px`, width: `${width}px`, height: `${height}px`}, 300)
-				// show the original card again
-				card.style.removeProperty('opacity');
-				// remove the clone card
-				cardClone.remove();
-			});
-			// fade the content away
-			fadeContent(cardClone, '0')
-				.then(() => {
-					[...cardClone.children].forEach(child => child.style.display = 'none');
-				});
-			// expand the clone card
-			await toggleExpansion(cardClone, {top: '5%', left: '40vw', width: '35vw', height: 'auto'});
-			const content = getCardContent(card.textContent, card.dataset.type)
-			// set the display block so the content will follow the normal flow in case the original card is not display block
-			cardClone.style.display = 'block';
-			cardClone.style.padding = '0';
-			// append the close button after the expansion is done
-			cardClone.appendChild(closeButton);
-			cardClone.insertAdjacentHTML('afterbegin', content);
-		};
+            // attach click event to the close button
+            closeButton.addEventListener('click', async () => {
+                // remove the button on close
+                closeButton.remove();
+                // remove the display style so the original content is displayed right
+                cardClone.style.removeProperty('display');
+                cardClone.style.removeProperty('padding');
+                // show original card content
+                [...cardClone.children].forEach(child => child.style.removeProperty('display'));
+                fadeContent(cardClone, '0');
+                // shrink the card back to the original position and size
+                await toggleExpansion(cardClone, { top: `${top}px`, left: `${left}px`, width: `${width}px`, height: `${height}px` }, 300)
+                // show the original card again
+                card.style.removeProperty('opacity');
+                // remove the clone card
+                cardClone.remove();
+            });
+            // fade the content away
+            fadeContent(cardClone, '0')
+                .then(() => {
+                    [...cardClone.children].forEach(child => child.style.display = 'none');
+                });
+            // expand the clone card
+            
 
-		cards.forEach(card => card.addEventListener('click', onCardClick));
-	</script>
+            const mediaQuery = window.matchMedia('(max-width: 1025px)')
+            // Check if the media query is true
+            if (mediaQuery.matches) {
+                // Then trigger an alert
+                await toggleExpansion(cardClone, { top: '10vh', left: '10vw', width: '85vw', height: '80vh' });
+            }else {
+                await toggleExpansion(cardClone, { top: '10vh', left: '40vw', width: '35vw', height: '80vh' });
+            }
+            const content = getCardContent(card.textContent, card.dataset.type)
+            // set the display block so the content will follow the normal flow in case the original card is not display block
+            cardClone.style.display = 'block';
+            cardClone.style.padding = '0';
+            // append the close button after the expansion is done
+            cardClone.appendChild(closeButton);
+            cardClone.insertAdjacentHTML('afterbegin', content);
+        };
+
+        cards.forEach(card => card.addEventListener('click', onCardClick));
+    </script>
 </body>
+
 </html>
