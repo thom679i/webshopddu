@@ -20,6 +20,7 @@
         </div>
         <p class="pageTitle">Product Overview</p>
         <div class="content">
+
             <div>
                 <div class="pImage">
                     <!-- Image of product -->
@@ -30,11 +31,15 @@
                     <p>PeePoo Wristwatch</p>
                     <p>3.999,99 USD</p>
                     <p>Stock: 69</p>
-                    <div>
-                        <p>X</p>
+                    <div class="editBtn">
+                        <p>Edit</p>
+                    </div>
+                    <div class="deleteBtn">
+                        <p>Delete</p>
                     </div>
                 </div>
-            </div> 
+            </div>
+
             <div>
                 <div class="pImage">
                     <!-- Image of product -->
@@ -45,11 +50,15 @@
                     <p>PeePoo Wristwatch</p>
                     <p>3.999,99 USD</p>
                     <p>Stock: 69</p>
-                    <div>
-                        <p>X</p>
+                    <div class="editBtn">
+                        <p>Edit</p>
+                    </div>
+                    <div class="deleteBtn">
+                        <p>Delete</p>
                     </div>
                 </div>
-            </div> 
+            </div>
+
             <div>
                 <div class="pImage">
                     <!-- Image of product -->
@@ -60,11 +69,15 @@
                     <p>PeePoo Wristwatch</p>
                     <p>3.999,99 USD</p>
                     <p>Stock: 69</p>
-                    <div>
-                        <p>X</p>
+                    <div class="editBtn">
+                        <p>Edit</p>
+                    </div>
+                    <div class="deleteBtn">
+                        <p>Delete</p>
                     </div>
                 </div>
-            </div> 
+            </div>
+
             <div>
                 <div class="pImage">
                     <!-- Image of product -->
@@ -75,11 +88,15 @@
                     <p>PeePoo Wristwatch</p>
                     <p>3.999,99 USD</p>
                     <p>Stock: 69</p>
-                    <div>
-                        <p>X</p>
+                    <div class="editBtn">
+                        <p>Edit</p>
+                    </div>
+                    <div class="deleteBtn">
+                        <p>Delete</p>
                     </div>
                 </div>
-            </div> 
+            </div>
+
             <div>
                 <div class="pImage">
                     <!-- Image of product -->
@@ -90,11 +107,15 @@
                     <p>PeePoo Wristwatch</p>
                     <p>3.999,99 USD</p>
                     <p>Stock: 69</p>
-                    <div>
-                        <p>X</p>
+                    <div class="editBtn">
+                        <p>Edit</p>
+                    </div>
+                    <div class="deleteBtn">
+                        <p>Delete</p>
                     </div>
                 </div>
-            </div> 
+            </div>
+
             <div>
                 <div class="pImage">
                     <!-- Image of product -->
@@ -105,11 +126,15 @@
                     <p>PeePoo Wristwatch</p>
                     <p>3.999,99 USD</p>
                     <p>Stock: 69</p>
-                    <div>
-                        <p>X</p>
+                    <div class="editBtn">
+                        <p>Edit</p>
+                    </div>
+                    <div class="deleteBtn">
+                        <p>Delete</p>
                     </div>
                 </div>
-            </div> 
+            </div>
+
             <div>
                 <div class="pImage">
                     <!-- Image of product -->
@@ -120,11 +145,15 @@
                     <p>PeePoo Wristwatch</p>
                     <p>3.999,99 USD</p>
                     <p>Stock: 69</p>
-                    <div>
-                        <p>X</p>
+                    <div class="editBtn">
+                        <p>Edit</p>
+                    </div>
+                    <div class="deleteBtn">
+                        <p>Delete</p>
                     </div>
                 </div>
-            </div> 
+            </div>
+
             <div>
                 <div class="pImage">
                     <!-- Image of product -->
@@ -135,11 +164,15 @@
                     <p>PeePoo Wristwatch</p>
                     <p>3.999,99 USD</p>
                     <p>Stock: 69</p>
-                    <div>
-                        <p>X</p>
+                    <div class="editBtn">
+                        <p>Edit</p>
+                    </div>
+                    <div class="deleteBtn">
+                        <p>Delete</p>
                     </div>
                 </div>
-            </div> 
+            </div>
+
             <div>
                 <div class="pImage">
                     <!-- Image of product -->
@@ -150,12 +183,192 @@
                     <p>PeePoo Wristwatch</p>
                     <p>3.999,99 USD</p>
                     <p>Stock: 69</p>
-                    <div>
-                        <p>X</p>
+                    <div class="editBtn">
+                        <p>Edit</p>
+                    </div>
+                    <div class="deleteBtn">
+                        <p>Delete</p>
                     </div>
                 </div>
-            </div> 
+            </div>
+
         </div>
       </div>
+      <script>
+		const cards = document.querySelectorAll('.editBtn');
+
+		const toggleExpansion = (element, to, duration = 350) => {
+		  return new Promise((res) => {
+		    element.animate([
+		      {
+			top: to.top,
+			left: to.left,
+			width: to.width,
+			height: to.height
+		      }
+		    ], {duration, fill: 'forwards', ease: 'ease-in'})
+		    setTimeout(res, duration);
+		  })
+		}
+
+		const fadeContent = (element, opacity, duration = 300) => {
+			return new Promise(res => {
+				[...element.children].forEach((child) => {
+					requestAnimationFrame(() => {
+						child.style.transition = `opacity ${duration}ms linear`;
+						child.style.opacity = opacity;
+					});
+				})
+				setTimeout(res, duration);
+			})
+		}
+
+		const getCardContent = (title, type) => {
+			return `
+				<div class="card-content">
+					<h2>Edit Product Details</h2>
+                    <div>
+					    <div class="editImages">
+                            <img>
+                            <div>
+                                <img>
+                                <img>
+                                <img>
+                            </div>
+                        </div>
+                        <div>
+                            <p>Name: </p>
+                            <input class="nameBrandPriceInputs" type="text">
+                            <p>Brand: </p>
+                            <input class="nameBrandPriceInputs" type="text">
+                            <p>Price: </p>
+                            <input class="nameBrandPriceInputs" type="text">
+                            <p>Description: </p>
+                            <textarea class="description" maxlength="400"></textarea>
+                        </div>
+                        <div>
+                            <button class=""></button>
+                        </div>
+                    </div>
+				</div>
+                <style>
+                    .card-content {
+                        color:white;
+                        padding: 3vh;
+                        border: 5px solid #3f597a;
+                        cursor: default;
+                        background-color: #1f2b3b;
+                    }
+                    .card-content > div > div > p {
+                        margin-bottom: 0.3vh;
+                    }
+                    .nameBrandPriceInputs {
+                        border-radius: 0.5vh;
+                        border: 0px;
+                        width: 50%;
+                        height:20px;
+                        margin-bottom: 2vh;
+                        padding: 0.3vh;
+                        font-size: 1.8vh;
+                    }
+                    .description {
+                        border-radius: 0.5vh;
+                        border: 0px;
+                        width: 75%;
+                        height: 200px;
+                        padding: 0.5vh;
+                    }
+                    .editImages{
+                        height:350px;
+                        display: flex;
+                        flex-direction: row;
+                        margin-top: 1vh;
+                        margin-bottom: 2vh;
+                    }
+                    .editImages > img {
+                        width: 250%;
+                        height: 100%;
+                        background-color:#0e1d31;
+                    }
+                    .editImages > div {
+                        display:flex;
+                        flex-direction: column;
+                        width: 100%;
+                        height:100%;
+                    }
+                    .editImages > div > img {
+                        width: 100%;
+                        height: 200px;
+                        background-color: #1a385f;
+                    }
+                </style>
+			`;
+		}
+
+		const onCardClick = async (e) => {
+			const card = e.currentTarget;
+			// clone the card
+			const cardClone = card.cloneNode(true);
+			// get the location of the card in the view
+			const {top, left, width, height} = card.getBoundingClientRect();
+			// position the clone on top of the original
+			cardClone.style.position = 'fixed';
+			cardClone.style.top = top + 'px';
+			cardClone.style.left = left + 'px';
+			cardClone.style.width = width + 'px';
+			cardClone.style.height = height + 'px';
+			// hide the original card with opacity
+			card.style.opacity = '0';
+			// add card to the same container
+			card.parentNode.appendChild(cardClone);
+			// create a close button to handle the undo
+			const closeButton = document.createElement('button');
+			// position the close button top corner
+			closeButton.style = `
+				position: fixed;
+				z-index: 10000;
+				top: 35px;
+				right: 35px;
+				width: 35px;
+				height: 35px;
+				border-radius: 50%;
+                border: 1px solid black;
+				background-color: #b31212;
+			`;
+			// attach click event to the close button
+			closeButton.addEventListener('click', async () => {
+				// remove the button on close
+				closeButton.remove();
+				// remove the display style so the original content is displayed right
+				cardClone.style.removeProperty('display');
+				cardClone.style.removeProperty('padding');
+				// show original card content
+				[...cardClone.children].forEach(child => child.style.removeProperty('display'));
+				fadeContent(cardClone, '0');
+				// shrink the card back to the original position and size
+				await toggleExpansion(cardClone, {top: `${top}px`, left: `${left}px`, width: `${width}px`, height: `${height}px`}, 300)
+				// show the original card again
+				card.style.removeProperty('opacity');
+				// remove the clone card
+				cardClone.remove();
+			});
+			// fade the content away
+			fadeContent(cardClone, '0')
+				.then(() => {
+					[...cardClone.children].forEach(child => child.style.display = 'none');
+				});
+			// expand the clone card
+			await toggleExpansion(cardClone, {top: '5%', left: '40vw', width: '35vw', height: 'auto'});
+			const content = getCardContent(card.textContent, card.dataset.type)
+			// set the display block so the content will follow the normal flow in case the original card is not display block
+			cardClone.style.display = 'block';
+			cardClone.style.padding = '0';
+			// append the close button after the expansion is done
+			cardClone.appendChild(closeButton);
+			cardClone.insertAdjacentHTML('afterbegin', content);
+		};
+
+		cards.forEach(card => card.addEventListener('click', onCardClick));
+	</script>
 </body>
 </html>
