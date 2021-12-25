@@ -387,15 +387,14 @@
                 .then(() => {
                     [...cardClone.children].forEach(child => child.style.display = 'none');
                 });
-            // expand the clone card
-            
-
             const mediaQuery = window.matchMedia('(max-width: 1025px)')
-            // Check if the media query is true
+            //Check if the media query is true
+            //Expand cards
             if (mediaQuery.matches) {
-                // Then trigger an alert
+                //Mobile
                 await toggleExpansion(cardClone, { top: '10vh', left: '10vw', width: '85vw', height: '80vh' });
             }else {
+                //Desktop
                 await toggleExpansion(cardClone, { top: '10vh', left: '40vw', width: '35vw', height: '80vh' });
             }
             const content = getCardContent(card.textContent, card.dataset.type)
