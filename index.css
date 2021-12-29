@@ -1,5 +1,17 @@
 :root{
   /* Change color theme here */
+  /*Green Color Theme*/
+    --main-background-color: #fff;
+    --main-popout-color: #37683e;
+    --main-font-color: #fff;
+    --main-button-color: #406b3a;
+    --main-button-border-color: #598147;
+    --main-hover-botton-color: #497942;
+    --mainElement-border-radius: 5px;
+    --outer-margin-values: 0 0.6em 0 0.6em;
+
+    /*Blue Color Theme*/
+    /*
     --main-background-color: #fff;
     --main-popout-color: #1f2b3b;
     --main-font-color: #fff;
@@ -8,6 +20,7 @@
     --main-hover-botton-color: #476081;
     --mainElement-border-radius: 5px;
     --outer-margin-values: 0 0.6em 0 0.6em;
+    */
 }
 * {
     background-color: var(--main-background-color);
@@ -63,13 +76,21 @@
     background-color: var(--main-popout-color); 
     margin: var(--outer-margin-values);
   }
-
   .content > div {
     height: 100%;
     width: 100%;
     background-color: initial;
     display: grid;
     place-items: center;
+    overflow: hidden;
+  }
+  .content > div > img {
+    width: 100%;
+    min-height: 100%;
+    object-fit: fill;
+    height:max-content;
+    border-radius: var(--mainElement-border-radius);
+    filter: blur(3px);
   }
   .content > div > button {
     border: 3px solid var(--main-button-border-color);
@@ -77,11 +98,12 @@
     background-color: var(--main-button-color);
     color: var(--main-font-color);
     font-size: 3vh;
-    padding: 0.6vw 4vw 0.6vw 4vw;
+    padding: 1vw 4.4vw 1vw 4.4vw;
+    position: absolute;
   }
   .content > div > button:hover {
     background-color: var(--main-hover-botton-color);
-    padding: 0.7vw 4.1vw 0.7vw 4.1vw;
+    padding: 1.1vw 4.5vw 1.1vw 4.5vw;
   }
   
   .side-scroll-menu {
@@ -104,7 +126,7 @@
   .side-scroll-menu > div > div {
     width: 100%;
     height: 60%;
-    background-color: #3a4f6b;
+    background-color: var(--main-button-border-color);
   }
   .side-scroll-menu > div > p {
     background-color: initial;
