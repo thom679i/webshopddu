@@ -1,6 +1,27 @@
-:root{
-    --main-background-color: #ffffff;
-    --main-popout-color: #1f2b3b;
+:root {
+    /* Change color theme here */
+    /*Green Color Theme*/
+    --main-background-color: #fff;
+    --main-popout-color: #37683e;
+    --main-font-color: #fff;
+    --main-button-color: #406b3a;
+    --main-button-border-color: #598147;
+    --main-hover-botton-color: #558d4d;
+    --main-button-border-radius: 0.8vw;
+    --main-border-size: 3px;
+    --outer-margin-values: 0 0.6em 0 0.6em;
+    /*Blue Color Theme*/
+    /*
+  --main-background-color: #fff;
+  --main-popout-color: #1f2b3b;
+  --main-font-color: #fff;
+  --main-button-color: #3a4f6b;
+  --main-button-border-color: #476081;
+  --main-hover-botton-color: #476081;
+  --main-border-size: 3px;
+  --main-button-border-radius: 0.8vw;
+  --outer-margin-values: 0 0.6em 0 0.6em;
+  */
     --element-border: 1.2vh;
 }
 
@@ -9,244 +30,319 @@
     padding: 0px;
     margin: 0px;
     font-family: sans-serif;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
-  width: 1vh;
+    width: 1vh;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--main-background-color); 
+    background: var(--main-background-color);
 }
- 
+
 ::-webkit-scrollbar-thumb {
-  border-radius: 5px;
-  background: #9194a0;
+    border-radius: 5px;
+    background: #9194a0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7e808b;
+    background: #7e808b;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.3fr 2.6fr 0.3fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "header"
-    "content"
-    "footer";
-  height: 108vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10.5vh 81.5vh 8vh;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "header" "content" "footer";
+    height: 110vh;
+    overflow-y: hidden;
 }
 
-.header { grid-area: header; background-color: var(--main-popout-color);}
+.header {
+    grid-area: header;
+    background-color: var(--main-popout-color);
+    width: 100%;
+    gap: 1.5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-font-color);
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
 
-.footer { 
-  grid-area: footer; 
-  background-color: var(--main-popout-color); 
-  position: absolute;
-  width: 100%;
+.headerTitle {
+    background-color: initial;
+    text-decoration: initial;
+    color: inherit;
+    font-size: 3.8vh;
+}
+
+.header> :not(.headerTitle) {
+    background-color: initial;
+    text-decoration: initial;
+    color: inherit;
+    font-size: 2.4vh;
+}
+
+.header> :not(.headerTitle):hover {
+    color: rgb(206, 206, 206);
+}
+
+.footer {
+    grid-area: footer;
+    background-color: var(--main-popout-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 150%;
+    margin-top: 8vh;
+}
+
+.footer>p {
+    background-color: initial;
+    color: var(--main-font-color);
+    font-weight: bold;
+    margin-top: 1vh;
+    font-size: 1.8vh;
+}
+
+.footer>div {
+    background-color: initial;
+    margin-top: 1vh;
+}
+
+.footer>div>button {
+    width: 5vh;
+    height: 5vh;
+    background-color: var(--main-button-color);
+    border: var(--main-button-border-color) solid var(--main-border-size);
+    border-radius: 50%;
+    margin-right: 1vw;
+}
+
+.footer>div>button>i {
+    color: var(--main-font-color);
+    background-color: inherit;
+    font-size: 1.8vh;
+}
+
+.footer>div>button:hover {
+    background-color: var(--main-hover-botton-color);
+    cursor: pointer;
 }
 
 .content {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: 100%;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-  "pImage"
-  "pInfo";
-  grid-area: content;
-  margin-top: 3vh;
-  margin-right: 3vh;
-  margin-left: 3vh;
-  height: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100%;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "pImage" "pInfo";
+    grid-area: content;
+    margin-top: 3vh;
+    margin-right: 3vh;
+    margin-left: 3vh;
+    height: 100%;
 }
 
 .pImage {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 0fr;
-  gap: 1vh 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "largeImage largeImage largeImage"
-    "largeImage largeImage largeImage"
-    "smallImages smallImages smallImages";
-  grid-area: pImage;
-  height: 45vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 1vh 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "largeImage largeImage largeImage" "largeImage largeImage largeImage" "smallImages smallImages smallImages";
+    grid-area: pImage;
+    height: 45vh;
 }
 
-.largeImage { 
-  grid-area: largeImage; 
-  background-color: var(--main-popout-color); 
-  border-radius: var(--element-border);
-  height: 100%;
+.largeImage {
+    grid-area: largeImage;
+    background-color: var(--main-hover-botton-color);
+    border-radius: var(--element-border);
+    height: 100%;
 }
 
 .smallImages {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 9vh;
-  gap: 0px 2vh;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "small-Image-1 small-Image-2 small-Image-3";
-  grid-area: smallImages;
-  height: 12vh;
-}
-
-.smallImages > div {
-  background-color: var(--main-popout-color);
-  border-radius: var(--element-border);
-}
-
-.small-Image-1 { grid-area: small-Image-1;}
-
-.small-Image-2 { grid-area: small-Image-2;}
-
-.small-Image-3 { grid-area: small-Image-3;}
-
-.pInfo {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.525fr 0.5fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "titleDescription"
-    "purchaseCartPriceStock";
-  grid-area: pInfo;
-  height: 100%;
-  overflow-y: hidden;
-}
-
-.pTitle {
-  height: auto;
-  font-size: 1.6em;
-  font-weight: bold;
-  margin-bottom: 1vh;
-}
-.pDescription {
-  height: auto;
-  font-size: 1em;
-}
-
-.titleDescription { grid-area: titleDescription;}
-
-.purchaseCartPriceStock { 
-  grid-area: purchaseCartPriceStock; 
-  overflow-y:hidden;
-  margin-top: 5vh;
-  height: fit-content;
-}
-
-.price{
-  height: auto;
-  font-size: 1.2em;
-}
-.stock{
-  height: auto;
-  font-size: 1.2em;
-}
-
-.purchaseBtn{
-  width: 12em;
-  height: 3em;
-  border: 2px solid #363636;
-  border-radius: var(--element-border);
-  background-color: var(--main-popout-color);
-  color: #fff;
-  margin-right: 1.5em;
-  font-size: 1em;
-}
-.cartBtn{
-  width: 12em;
-  height: 3em;
-  border: 2px solid var(--main-popout-color);
-  border-radius: var(--element-border);
-  background-color: #fff;
-  color: var(--main-popout-color);
-  font-size: 1em;
-}
-
-.purchaseBtn:hover {
-  animation-name: purchaseBtnColor;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards; 
-}
-
-.cartBtn:hover {
-  animation-name: cartBtnColor;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards; 
-}
-
-@keyframes purchaseBtnColor{
-  0%{background-color: var(--main-popout-color); color: #fff;}
-  100% {background-color: #4f9b31; color: #fff;}
-}
-
-@keyframes cartBtnColor{
-  0%{background-color: #fff; color: var(--main-popout-color);}
-  100% {background-color: #4f9b31; color: #fff;}
-}
-
-
-.other { grid-area: other; background-color: yellow;}
-
-@media only screen and (min-width: 1025px) {
-  .content {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: 50vh 50vh;
-    gap: 0px 10vh;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "pImage pInfo";
-    grid-area: content;
-    margin-top: 15vh;
-    margin-bottom: 0vh;
-    height: auto;
-  }
-  .container{
-    height:100vh;
-  }
-  .pImage {
-    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0fr 0.5fr 0.5fr;
-    gap: 1vh 0px;
+    grid-template-rows: 9vh;
+    gap: 0px 2vh;
     grid-auto-flow: row;
-    grid-template-areas:
-      "largeImage largeImage largeImage"
-      "largeImage largeImage largeImage"
-      "smallImages smallImages smallImages";
-    grid-area: pImage;
-  }
-  .pInfo {
+    grid-template-areas: "small-Image-1 small-Image-2 small-Image-3";
+    grid-area: smallImages;
     height: 100%;
+}
+
+.smallImages>div {
+    background-color: var(--main-hover-botton-color);
+    border-radius: var(--element-border);
+    height: 100%;
+}
+
+.small-Image-1 {
+    grid-area: small-Image-1;
+}
+
+.small-Image-2 {
+    grid-area: small-Image-2;
+}
+
+.small-Image-3 {
+    grid-area: small-Image-3;
+}
+
+.pInfo {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 0.525fr 0.5fr;
     gap: 0px 0px;
     grid-auto-flow: row;
-    grid-template-areas:
-      "titleDescription"
-      "purchaseCartPriceStock";
+    grid-template-areas: "titleDescription" "purchaseCartPriceStock";
     grid-area: pInfo;
-  }
-  .footer { 
-    grid-area: footer; 
-    background-color: var(--main-popout-color); 
-    position: absolute; 
-    bottom: 0; 
-    height: 5vh; 
-    width: 100%;
-  }
+    overflow-y: hidden;
+}
+
+.pTitle {
+    height: auto;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-bottom: 1vh;
+}
+
+.pDescription {
+    height: auto;
+    font-size: 1em;
+}
+
+.titleDescription {
+    grid-area: titleDescription;
+}
+
+.purchaseCartPriceStock {
+    grid-area: purchaseCartPriceStock;
+    overflow-y: hidden;
+    margin-top: 5vh;
+    height: fit-content;
+}
+
+.price {
+    height: auto;
+    font-size: 1.2em;
+}
+
+.stock {
+    height: auto;
+    font-size: 1.2em;
+}
+
+.purchaseBtn {
+    width: 12em;
+    height: 3em;
+    border: var(--main-border-size) solid var(--main-button-border-color);
+    border-radius: var(--main-button-border-radius);
+    background-color: var(--main-button-color);
+    color: #fff;
+    margin-right: 1.5em;
+    font-size: 1em;
+}
+
+.cartBtn {
+    width: 12em;
+    height: 3em;
+    border: var(--main-border-size) solid var(--main-button-border-color);
+    border-radius: var(--main-button-border-radius);
+    background-color: var(--main-button-color);
+    color: var(--main-font-color);
+    font-size: 1em;
+}
+
+.purchaseBtn:hover {
+    animation-name: purchaseBtnColor;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.cartBtn:hover {
+    animation-name: cartBtnColor;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes purchaseBtnColor {
+    0% {
+        background-color: var(--main-button-color);
+        color: var(--main-font-color);
+    }
+    100% {
+        background-color: #4f9b31;
+        color: var(--main-font-color);
+    }
+}
+
+@keyframes cartBtnColor {
+    0% {
+        background-color: var(--main-button-color);
+        color: var(--main-font-color)
+    }
+    100% {
+        background-color: #4f9b31;
+        color: var(--main-font-color);
+    }
+}
+
+@media only screen and (min-width: 1025px) {
+    .content {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 50vh 50vh;
+        gap: 0px 10vh;
+        grid-auto-flow: row;
+        grid-template-areas: "pImage pInfo";
+        grid-area: content;
+        margin-top: 15vh;
+        margin-bottom: 0vh;
+        height: auto;
+    }
+    .container {
+        height: 100vh;
+    }
+    .header {
+        gap: 20vw;
+    }
+    .pImage {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0fr 0.5fr 0.5fr;
+        gap: 1vh 0px;
+        grid-auto-flow: row;
+        grid-template-areas: "largeImage largeImage largeImage" "largeImage largeImage largeImage" "smallImages smallImages smallImages";
+        grid-area: pImage;
+    }
+    .pInfo {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.525fr 0.5fr;
+        gap: 0px 0px;
+        grid-auto-flow: row;
+        grid-template-areas: "titleDescription" "purchaseCartPriceStock";
+        grid-area: pInfo;
+    }
+    .footer {
+        grid-area: footer;
+        background-color: var(--main-popout-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -1.9vh;
+        height: 150%;
+    }
 }
