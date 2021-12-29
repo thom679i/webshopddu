@@ -35,6 +35,10 @@
         <p class="pageTitle">Product Overview</p>
         <div class="content">
 
+            <button class="addProductBtn" id="addProductBtn">
+                <p>+</p>
+            </button>
+
             <div>
                 <div class="pImage">
                     <!-- Image of product -->
@@ -209,7 +213,7 @@
         </div>
     </div>
     <script>
-        const cards = document.querySelectorAll('.editBtn');
+        const cards = document.querySelectorAll('.editBtn, .addProductBtn');
 
         const toggleExpansion = (element, to, duration = 350) => {
             return new Promise((res) => {
@@ -266,12 +270,18 @@
                     </div>
 				</div>
                 <style>
+                    .addProductBtn {
+                        border-radius: 0.5vh;
+                        border:none;
+                    }
                     .card-content {
                         color:white;
                         padding: 3vh;
                         border: 7px solid #3f597a;
                         cursor: default;
                         background-color: #1f2b3b;
+                        text-align:center;
+                        font-size: 3vh;
                     }
                     .card-content > div > div > p {
                         margin-bottom: 0.3vh;
@@ -289,11 +299,11 @@
                         border-radius: 0.5vh;
                         border: 0px;
                         width: 75%;
-                        height: 200px;
+                        height: 20vh;
                         padding: 0.5vh;
                     }
                     .editImages{
-                        height:350px;
+                        height:32vh;
                         display: flex;
                         flex-direction: row;
                         margin-top: 1vh;
@@ -312,7 +322,7 @@
                     }
                     .editImages > div > img {
                         width: 100%;
-                        height: 200px;
+                        height: 20vh;
                         background-color: #1a385f;
                     }
                     .confirmEdit {
@@ -336,6 +346,9 @@
         }
 
         const onCardClick = async (e) => {
+            var addProductBtnHide = document.getElementById("addProductBtn");
+            //Hides add product button
+            addProductBtnHide.style.display = "none";
             const card = e.currentTarget;
             // clone the card
             const cardClone = card.cloneNode(true);
@@ -353,6 +366,7 @@
             card.parentNode.appendChild(cardClone);
             // create a close button to handle the undo
             const closeButton = document.createElement('button');
+            closeButton.innerHTML = '<p> x </p>'
             // position the close button top corner
             closeButton.style = `
 				position: fixed;
@@ -364,6 +378,9 @@
 				border-radius: 50%;
                 border: 1px solid black;
 				background-color: #b31212;
+                color: white;
+                font-size: 20px;
+                text-align:center;
 			`;
             // attach click event to the close button
             closeButton.addEventListener('click', async () => {
@@ -381,19 +398,23 @@
                 card.style.removeProperty('opacity');
                 // remove the clone card
                 cardClone.remove();
+                //Shows add product button
+                addProductBtnHide.style.display = "block";
             });
+
             // fade the content away
             fadeContent(cardClone, '0')
                 .then(() => {
                     [...cardClone.children].forEach(child => child.style.display = 'none');
                 });
+
+            //Set media queries for responsiveness
             const mediaQuery = window.matchMedia('(max-width: 1025px)')
-            //Check if the media query is true
             //Expand cards
             if (mediaQuery.matches) {
                 //Mobile
                 await toggleExpansion(cardClone, { top: '10vh', left: '10vw', width: '85vw', height: '80vh' });
-            }else {
+            } else {
                 //Desktop
                 await toggleExpansion(cardClone, { top: '10vh', left: '40vw', width: '35vw', height: '80vh' });
             }

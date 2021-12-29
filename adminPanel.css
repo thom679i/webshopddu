@@ -126,6 +126,53 @@
     text-decoration: none;
   }
 
+  .addProductBtn{
+    position: fixed;
+		z-index: 10000;
+		top: 35px;
+		right: 35px;
+  	width: 35px;
+		height: 35px;
+		border-radius: 50%;
+    border: 1px solid black;
+		background-color: #38b312;
+    color: white;
+    font-size: 20px;
+    text-align:center;
+  }
+
+  
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--main-background-color); 
+  }
+   
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #a7a7a7; 
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8f8f8f;
+  }
+
+
+  ::-webkit-scrollbar:horizontal {
+    height: 9px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover:horizontal {
+    background: #8f8f8f;
+  }
+
+  ::-webkit-scrollbar-thumb:horizontal {
+    border-radius: 5px;
+    background: #aaaaaa; 
+  }
+
   @media only screen and (max-width: 1025px) {
     .content{
       display: grid;
