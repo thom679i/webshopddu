@@ -217,14 +217,16 @@
 
         const toggleExpansion = (element, to, duration = 350) => {
             return new Promise((res) => {
-                element.animate([
-                    {
-                        top: to.top,
-                        left: to.left,
-                        width: to.width,
-                        height: to.height
-                    }
-                ], { duration, fill: 'forwards', ease: 'ease-in' })
+                element.animate([{
+                    top: to.top,
+                    left: to.left,
+                    width: to.width,
+                    height: to.height
+                }], {
+                    duration,
+                    fill: 'forwards',
+                    ease: 'ease-in'
+                })
                 setTimeout(res, duration);
             })
         }
@@ -345,7 +347,7 @@
 			`;
         }
 
-        const onCardClick = async (e) => {
+        const onCardClick = async(e) => {
             var addProductBtnHide = document.getElementById("addProductBtn");
             //Hides add product button
             addProductBtnHide.style.display = "none";
@@ -353,7 +355,12 @@
             // clone the card
             const cardClone = card.cloneNode(true);
             // get the location of the card in the view
-            const { top, left, width, height } = card.getBoundingClientRect();
+            const {
+                top,
+                left,
+                width,
+                height
+            } = card.getBoundingClientRect();
             // position the clone on top of the original
             cardClone.style.position = 'fixed';
             cardClone.style.top = top + 'px';
@@ -366,8 +373,8 @@
             card.parentNode.appendChild(cardClone);
             // create a close button to handle the undo
             const closeButton = document.createElement('button');
-            closeButton.innerHTML = '<p> x </p>'
-            // position the close button top corner
+            closeButton.innerHTML = '<p>&#10006;</p>'
+                // position the close button top corner
             closeButton.style = `
 				position: fixed;
 				z-index: 10000;
@@ -383,7 +390,7 @@
                 text-align:center;
 			`;
             // attach click event to the close button
-            closeButton.addEventListener('click', async () => {
+            closeButton.addEventListener('click', async() => {
                 // remove the button on close
                 closeButton.remove();
                 // remove the display style so the original content is displayed right
@@ -393,8 +400,13 @@
                 [...cardClone.children].forEach(child => child.style.removeProperty('display'));
                 fadeContent(cardClone, '0');
                 // shrink the card back to the original position and size
-                await toggleExpansion(cardClone, { top: `${top}px`, left: `${left}px`, width: `${width}px`, height: `${height}px` }, 300)
-                // show the original card again
+                await toggleExpansion(cardClone, {
+                        top: `${top}px`,
+                        left: `${left}px`,
+                        width: `${width}px`,
+                        height: `${height}px`
+                    }, 300)
+                    // show the original card again
                 card.style.removeProperty('opacity');
                 // remove the clone card
                 cardClone.remove();
@@ -410,16 +422,26 @@
 
             //Set media queries for responsiveness
             const mediaQuery = window.matchMedia('(max-width: 1025px)')
-            //Expand cards
+                //Expand cards
             if (mediaQuery.matches) {
                 //Mobile
-                await toggleExpansion(cardClone, { top: '10vh', left: '10vw', width: '85vw', height: '80vh' });
+                await toggleExpansion(cardClone, {
+                    top: '10vh',
+                    left: '10vw',
+                    width: '85vw',
+                    height: '80vh'
+                });
             } else {
                 //Desktop
-                await toggleExpansion(cardClone, { top: '10vh', left: '40vw', width: '35vw', height: '80vh' });
+                await toggleExpansion(cardClone, {
+                    top: '10vh',
+                    left: '40vw',
+                    width: '35vw',
+                    height: '80vh'
+                });
             }
             const content = getCardContent(card.textContent, card.dataset.type)
-            // set the display block so the content will follow the normal flow in case the original card is not display block
+                // set the display block so the content will follow the normal flow in case the original card is not display block
             cardClone.style.display = 'block';
             cardClone.style.padding = '0';
             // append the close button after the expansion is done

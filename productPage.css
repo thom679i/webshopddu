@@ -53,11 +53,11 @@
 .container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 10.5vh 81.5vh 8vh;
+    grid-template-rows: 10.5vh 95vh 9vh;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas: "header" "content" "footer";
-    height: 110vh;
+    height: 120vh;
     overflow-y: hidden;
 }
 
@@ -100,8 +100,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 150%;
-    margin-top: 8vh;
+    height: 170%;
 }
 
 .footer>p {
@@ -135,6 +134,15 @@
 .footer>div>button:hover {
     background-color: var(--main-hover-botton-color);
     cursor: pointer;
+}
+
+.footer>a {
+    text-decoration: none;
+    background-color: inherit;
+    color: var(--main-font-color);
+    font-weight: bold;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .content {
@@ -312,6 +320,7 @@
     }
     .container {
         height: 100vh;
+        grid-template-rows: 10.5vh 78vh 9vh;
     }
     .header {
         gap: 20vw;

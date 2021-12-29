@@ -79,7 +79,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 130%;
+    height: 170%;
 }
 
 .footer>p {
@@ -113,6 +113,15 @@
 .footer>div>button:hover {
     background-color: var(--main-hover-botton-color);
     cursor: pointer;
+}
+
+.footer>a {
+    text-decoration: none;
+    background-color: inherit;
+    color: var(--main-font-color);
+    font-weight: bold;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .content {
@@ -183,6 +192,23 @@
         background-color: #4f9b31;
         color: #fff;
     }
+}
+
+::-webkit-scrollbar {
+    width: 11px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: var(--main-background-color);
+}
+
+ ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #a7a7a7;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #8f8f8f;
 }
 
 @media only screen and (min-width: 1025px) {

@@ -176,7 +176,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 150%;
+    height: 170%;
 }
 
 .footer>p {
@@ -184,12 +184,12 @@
     color: var(--main-font-color);
     font-weight: bold;
     margin-top: 1vh;
+    margin-bottom: 1vh;
     font-size: 1.8vh;
 }
 
 .footer>div {
     background-color: initial;
-    margin-top: 1vh;
 }
 
 .footer>div>button {
@@ -210,6 +210,14 @@
 .footer>div>button:hover {
     background-color: var(--main-hover-botton-color);
     cursor: pointer;
+}
+
+.footer>a {
+    text-decoration: none;
+    background-color: inherit;
+    color: var(--main-font-color);
+    font-weight: bold;
+    margin-top: 1vh;
 }
 
 @media only screen and (min-width: 1000px) {
