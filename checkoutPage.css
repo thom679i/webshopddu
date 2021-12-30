@@ -7,7 +7,7 @@
     --main-button-color: #406b3a;
     --main-button-border-color: #598147;
     --main-hover-botton-color: #558d4d;
-    --main-button-border-radius: 0.8vw;
+    --main-button-border-radius: 1.6vh;
     --main-border-size: 3px;
     --mainElement-border-radius: 5px;
     --outer-margin-values: 0 0.6em 0 0.6em;
@@ -44,7 +44,6 @@
     grid-area: header;
     background-color: var(--main-popout-color);
     width: 100%;
-    gap: 20vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -67,6 +66,7 @@
     text-decoration: initial;
     color: inherit;
     font-size: 2.4vh;
+    width: 35%;
 }
 
 .header> :not(.headerTitle):hover {
