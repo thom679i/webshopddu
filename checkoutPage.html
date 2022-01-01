@@ -42,7 +42,7 @@
                         <p>Name On Card</p>
                         <input type="text">
                         <p>Card Number</p>
-                        <input type="text">
+                        <input type="text" id="cardNumberInput" required="required">
                         <p>Card Expiring Date</p>
                         <input type="text">
                         <p>Cvv</p>
@@ -50,7 +50,7 @@
                         <p>Email</p>
                         <input type="text">
                     </div>
-                    <button class="purchaseBtn">Complete Purchase</button>
+                    <button class="purchaseBtn" onclick="checkLuhn()">Complete Purchase</button>
                 </div>
             </div>
         </div>
@@ -65,5 +65,30 @@
         </div>
     </div>
 </body>
+
+<script>
+    function checkLuhn() {
+        var cardNumber = document.getElementById('cardNumberInput');
+
+        const isLuhnValid = function luhn(array) {
+            return function(number) {
+                let len = number ? number.length : 0,
+                    bit = 1,
+                    sum = 0;
+
+                while (len--) {
+                    sum += !(bit ^= 1) ? parseInt(number[len], 10) : array[number[len]];
+                }
+
+                return sum % 10 === 0 && sum > 0;
+            };
+        }([0, 2, 4, 6, 8, 1, 3, 5, 7, 9]);
+
+        //What to do if number is invalid/valid
+        if (isLuhnValid(cardNumber.value.split("")) == false) {
+            cardNumber.style = 'border: 2px solid red;';
+        } else cardNumber.style = '';
+    }
+</script>
 
 </html>
