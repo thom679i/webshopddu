@@ -67,9 +67,9 @@
 </body>
 
 <script>
-    function checkLuhn() {
-        var cardNumber = document.getElementById('cardNumberInput');
+    var cardNumber = document.getElementById('cardNumberInput');
 
+    function checkLuhn() {
         const isLuhnValid = function luhn(array) {
             return function(number) {
                 let len = number ? number.length : 0,
