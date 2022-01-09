@@ -83,7 +83,29 @@
 
 .sidebar {
     grid-area: sidebar;
-    background-color: coral;
+}
+
+.sidebar>p {
+    display: flex;
+    justify-content: center;
+    font-size: 3em;
+    margin-top: 2vh;
+}
+
+.checkboxes {
+    margin-top: 2vh;
+    display: grid;
+    justify-content: center;
+    gap: 2vh;
+}
+
+.checkboxes>p {
+    font-size: 1.5em;
+}
+
+.checkboxes>p>input {
+    width: 1.5em;
+    height: 1.5em;
 }
 
 .browseMain {
@@ -105,7 +127,8 @@
 }
 
 .browseElements>div {
-    background-color: crimson;
+    border-radius: 1vh;
+    background-color: var(--main-hover-botton-color);
 }
 
 .nextPage {
