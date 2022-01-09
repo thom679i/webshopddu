@@ -129,6 +129,49 @@
 .browseElements>div {
     border-radius: 1vh;
     background-color: var(--main-hover-botton-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.browseElements>div>img {
+    height: 60%;
+    background-color: var(--main-button-border-color);
+    border-radius: 1vh 1vh 0vh 0vh;
+}
+
+.browseElements>div>button {
+    border-radius: 0vh 0vh 1vh 1vh;
+    height: 13%;
+    border: none;
+    background-color: var(--main-button-color);
+    color: #fff;
+    font-size: 1em;
+}
+
+.browseElements>div>button:hover {
+    animation-name: purchaseBtnColor;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes purchaseBtnColor {
+    0% {
+        background-color: var(--main-button-color);
+        color: var(--main-font-color);
+    }
+    100% {
+        background-color: #4f9b31;
+        color: var(--main-font-color);
+    }
+}
+
+.browseElements>div>p {
+    height: 27%;
+    background-color: inherit;
+    color: white;
+    overflow-y: scroll;
+    margin: 0.5vh;
 }
 
 .nextPage {
@@ -140,6 +183,11 @@
 .nextPage>p {
     font-weight: bold;
     font-size: 1.2em;
+}
+
+.nextPage>p>a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .footer {
@@ -194,4 +242,22 @@
 
 .footer>a:hover {
     color: rgb(206, 206, 206);
+}
+
+::-webkit-scrollbar {
+    width: 1vh;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--main-background-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #9194a0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7e808b;
 }
