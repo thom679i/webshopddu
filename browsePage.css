@@ -34,10 +34,9 @@
 }
 
 .container {
-    display: grid;
-    grid-template-rows: 10.5vh 125.5vh 8vh;
-    grid-auto-flow: row;
-    grid-template-areas: "header" "content" "footer";
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .header {
@@ -52,6 +51,7 @@
     font-weight: bold;
     text-decoration: none;
     width: 100%;
+    height: 10.5vh;
     text-align: center;
 }
 
@@ -75,15 +75,13 @@
 
 .content {
     grid-area: content;
-    display: grid;
-    grid-template-columns: 20% 80%;
-    grid-template-areas: "sidebar browseMain";
-    grid-auto-flow: column;
+    display: flex;
 }
 
 .sidebar {
     grid-area: sidebar;
     margin: 1vh;
+    width: 20%;
 }
 
 .sidebar>p {
@@ -113,7 +111,7 @@
     grid-area: browseMain;
     display: grid;
     grid-auto-flow: row;
-    grid-template-rows: 95% 5%;
+    width: 80%;
 }
 
 .browseElements {
@@ -121,10 +119,10 @@
     display: grid;
     justify-content: center;
     grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 18vw));
-    grid-template-rows: repeat(auto-fill, minmax(200px, 18vw));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 18vw));
+    grid-template-rows: repeat(auto-fit, minmax(200px, 18vw));
     gap: 20px;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .browseElements>div {
@@ -178,7 +176,6 @@
 .nextPage {
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .nextPage>p {
@@ -197,7 +194,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 170%;
+    height: 100%;
+    padding-bottom: 2vh;
 }
 
 .footer>p {
@@ -261,24 +259,4 @@
 
  ::-webkit-scrollbar-thumb:hover {
     background: #7e808b;
-}
-
-@media only screen and (max-width: 1025px) {
-    .content {
-        grid-area: content;
-        display: grid;
-        grid-template-columns: 40% 60%;
-        grid-template-areas: "sidebar browseMain";
-        grid-auto-flow: column;
-    }
-    .browseElements {
-        margin-top: 2vh;
-        display: grid;
-        justify-content: center;
-        grid-auto-flow: row;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 18vw));
-        grid-template-rows: repeat(auto-fill, minmax(200px, 18vw));
-        gap: 20px;
-        height: 100%;
-    }
 }

@@ -141,6 +141,7 @@
     background-color: var(--main-popout-color);
     color: var(--main-font-color);
     text-align: center;
+    height: 37vh;
 }
 
 .side-scroll-menu>div>div {
@@ -171,6 +172,12 @@
 
 .side-scroll-menu>div> :not(.side-scroll-menu > div > div) {
     margin-top: 1vh;
+}
+
+.side-scroll-menu>div>div>img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
 }
 
 .category-menu {
