@@ -112,7 +112,6 @@
     grid-area: browseMain;
     display: grid;
     grid-auto-flow: row;
-    width: 80%;
     min-height: 100vh;
 }
 
@@ -121,7 +120,7 @@
     display: grid;
     justify-content: center;
     grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
     grid-template-rows: repeat(auto-fill, 1fr);
     gap: 20px;
     height: fit-content;
@@ -133,7 +132,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-height: 300px;
+    max-height: 325px;
 }
 
 .browseElements>div>img {
@@ -262,4 +261,10 @@
 
  ::-webkit-scrollbar-thumb:hover {
     background: #7e808b;
+}
+
+@media only screen and (max-width: 1025px) {
+    .header {
+        gap: 10vw;
+    }
 }
