@@ -85,6 +85,20 @@
     cursor: pointer;
 }
 
+.pInfo>button {
+    display: grid;
+    place-items: center;
+    margin-top: 0.4vh;
+    width: 50%;
+    height: 20%;
+    border-radius: 0.5vh;
+    cursor: pointer;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1vw;
+}
+
 .deleteBtn {
     background-color: #7e0c0c;
 }
