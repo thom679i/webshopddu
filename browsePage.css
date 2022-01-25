@@ -87,7 +87,7 @@
 .sidebar>p {
     display: flex;
     justify-content: center;
-    font-size: calc(12px + 2vw);
+    font-size: calc(12px + 1.5vw);
     margin-top: 2vh;
 }
 
@@ -100,7 +100,8 @@
 }
 
 .checkboxes>p {
-    font-size: calc(10px + 0.8vw);
+    font-size: calc(6px + 0.7vw);
+    font-weight: bold;
 }
 
 .checkboxes>input {
@@ -120,7 +121,7 @@
     display: grid;
     justify-content: center;
     grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-template-rows: repeat(auto-fill, 1fr);
     gap: 20px;
     height: fit-content;
@@ -132,7 +133,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-height: 325px;
+    max-height: 375px;
 }
 
 .browseElements>div>img {
@@ -266,5 +267,23 @@
 @media only screen and (max-width: 1025px) {
     .header {
         gap: 10vw;
+    }
+    .browseElements>div {
+        border-radius: 1vh;
+        background-color: var(--main-hover-botton-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-height: 250px;
+    }
+    .browseElements {
+        margin: 2vh;
+        display: grid;
+        justify-content: center;
+        grid-auto-flow: row;
+        grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+        grid-template-rows: repeat(auto-fill, 1fr);
+        gap: 20px;
+        height: fit-content;
     }
 }
