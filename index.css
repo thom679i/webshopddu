@@ -46,7 +46,7 @@
     background-color: var(--main-popout-color);
     display: flex;
     flex-direction: row;
-    gap: 20vw;
+    gap: 8vw;
     justify-content: center;
     align-items: center;
     color: var(--main-font-color);
@@ -102,7 +102,7 @@
 .content>div>p {
     position: absolute;
     color: white;
-    font-size: 6vh;
+    font-size: 5vh;
     font-weight: 900;
     margin-bottom: 35vh;
     background-color: transparent;
@@ -116,13 +116,13 @@
     color: var(--main-font-color);
     font-size: 3vh;
     font-weight: bold;
-    padding: 0.8vw 4.4vw 0.8vw 4.4vw;
+    padding: 2vw 8vw 2vw 8vw;
     position: absolute;
 }
 
 .content>div>button:hover {
     background-color: var(--main-hover-botton-color);
-    padding: 0.9vw 4.5vw 0.9vw 4.5vw;
+    padding: 2.2vw 8.2vw 2.2vw 8.2vw;
 }
 
 .side-scroll-menu {
@@ -255,6 +255,32 @@
         grid-template-rows: 1fr;
         gap: 0em 1em;
         margin: var(--outer-margin-values);
+    }
+    .header {
+        gap: 20vw;
+    }
+    .content>div>p {
+        position: absolute;
+        color: white;
+        font-size: 8vh;
+        font-weight: 900;
+        margin-bottom: 50vh;
+        background-color: transparent;
+        text-align: center;
+    }
+    .content>div>button {
+        border: var(--main-border-size) solid var(--main-button-border-color);
+        border-radius: var(--main-button-border-radius);
+        background-color: var(--main-button-color);
+        color: var(--main-font-color);
+        font-size: 4vh;
+        font-weight: bold;
+        padding: 1vw 6vw 1vw 6vw;
+        position: absolute;
+    }
+    .content>div>button:hover {
+        background-color: var(--main-hover-botton-color);
+        padding: 1.2vw 6.2vw 1.2vw 6.2vw;
     }
 }
 
