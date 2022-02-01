@@ -76,6 +76,103 @@
 .content {
     grid-area: content;
     display: flex;
+    flex-direction: row;
+    height: 75vh;
+}
+
+.shoppingTitle {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 10vw;
+    margin-top: 10vh;
+}
+
+.productHolder {
+    display: flex;
+    flex-direction: column;
+    margin-left: 7vw;
+    font-weight: 500;
+}
+
+.productHolder>div {
+    display: flex;
+    flex-direction: row;
+    gap: 7vw;
+    margin-top: 5vh;
+}
+
+.productHolder>div>div {
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+.productHolder>div>div>button {
+    border: none;
+    width: 2.5vh;
+    height: 2.5vh;
+    border-radius: 0.5vh;
+    font-size: larger;
+    background-color: rgb(161, 161, 161);
+    display: grid;
+    place-content: center;
+}
+
+.productHolder>div>div>button:active {
+    width: 2.6vh;
+    height: 2.6vh;
+}
+
+.productHolder>div>div>button:hover {
+    background-color: rgb(197, 197, 197);
+}
+
+.checkout {
+    display: flex;
+    align-items: center;
+    margin-left: 30%;
+    width: 20%;
+    height: 100%;
+}
+
+.checkout>div {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    border: 2px solid grey;
+    border-radius: 1.7vh;
+}
+
+.checkout>div>div {
+    border-radius: 1.5vh;
+}
+
+.checkout>div>div>p:first-child {
+    font-size: large;
+    font-weight: bold;
+    margin-top: 2vh;
+}
+
+.checkout>div>div>p {
+    margin: 1vh 0 2vh 3vh;
+}
+
+.checkout>div>a {
+    margin: 2vh 0 2vh 3vh;
+}
+
+.checkout>div>button {
+    border-radius: 0 0 1.5vh 1.5vh;
+    border: none;
+    height: 6vh;
+    color: white;
+    font-weight: bold;
+    background-color: rgb(68, 68, 68);
+}
+
+.checkout>div>button:hover {
+    background-color: rgb(94, 94, 94);
+    cursor: pointer;
 }
 
 .footer {
@@ -154,5 +251,25 @@
 @media only screen and (max-width: 1025px) {
     .header {
         gap: 10vw;
+    }
+    .content {
+        grid-area: content;
+        display: flex;
+        flex-direction: column;
+        height: 75vh;
+    }
+    .checkout {
+        display: flex;
+        align-items: center;
+        margin-left: 10%;
+        width: 90%;
+        height: 100%;
+    }
+    .checkout>div {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        border: 2px solid grey;
+        border-radius: 1.7vh;
     }
 }
