@@ -58,6 +58,13 @@
     background-color: var(--main-hover-botton-color);
     border-radius: var(--element-border);
     height: 100%;
+    overflow: hidden;
+}
+
+.largeImage>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .smallImages {
@@ -75,6 +82,13 @@
     background-color: var(--main-hover-botton-color);
     border-radius: var(--element-border);
     height: 100%;
+    overflow: hidden;
+}
+
+.smallImages>div>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .small-Image-1 {

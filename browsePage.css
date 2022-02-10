@@ -75,6 +75,7 @@
 
 .browseElements>div>img {
     height: 60%;
+    object-fit: cover;
     background-color: var(--main-button-border-color);
     border-radius: 1vh 1vh 0vh 0vh;
 }
