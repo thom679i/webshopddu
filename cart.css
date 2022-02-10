@@ -22,13 +22,13 @@
     font-size: 30px;
     font-weight: bold;
     margin-left: 10vw;
-    margin-top: 10vh;
+    margin-top: 5vw;
 }
 
 .productHolder {
     display: grid;
     grid-auto-flow: row;
-    gap: 2vw;
+    gap: 3vh;
     margin-top: 5vh;
 }
 
@@ -39,12 +39,12 @@
 .productHolder>div>div {
     display: flex;
     flex-direction: row;
-    gap: 1.5vw;
+    gap: 1.25vw;
 }
 
 .productHolder>div>div>button {
-    width: 1.5vw;
-    height: 1.5vw;
+    width: 3vh;
+    height: 3vh;
     display: grid;
     place-content: center;
     border: 1px solid grey;
@@ -53,10 +53,16 @@
 .productHolder>div {
     display: grid;
     grid-auto-flow: column;
-    gap: 3vw;
+    gap: 3vh;
     text-align: center;
+    place-items: center;
     width: fit-content;
     margin-left: 10vw;
+}
+
+.productHolder>div>img {
+    width: 10vh;
+    height: 10vh;
 }
 
 .checkout {
