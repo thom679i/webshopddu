@@ -1,30 +1,3 @@
-:root {
-    /* Change color theme here */
-    /*Green Color Theme*/
-    --main-background-color: #fff;
-    --main-popout-color: #37683e;
-    --main-font-color: #fff;
-    --main-button-color: #406b3a;
-    --main-button-border-color: #598147;
-    --main-hover-botton-color: #558d4d;
-    --main-button-border-radius: 1.6vh;
-    --main-border-size: 3px;
-    --outer-margin-values: 0 0.6em 0 0.6em;
-    /*Blue Color Theme*/
-    /*
-  --main-background-color: #fff;
-  --main-popout-color: #1f2b3b;
-  --main-font-color: #fff;
-  --main-button-color: #3a4f6b;
-  --main-button-border-color: #476081;
-  --main-hover-botton-color: #476081;
-  --main-border-size: 3px;
-  --main-button-border-radius: 0.8vw;
-  --outer-margin-values: 0 0.6em 0 0.6em;
-  */
-    --element-border: 1.2vh;
-}
-
 * {
     background-color: var(--main-background-color);
     padding: 0px;
@@ -51,104 +24,13 @@
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 10.5vh 95vh 9vh;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas: "header" "content" "footer";
-    height: 120vh;
-    overflow-y: hidden;
-}
-
-.header {
-    grid-area: header;
-    background-color: var(--main-popout-color);
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    color: var(--main-font-color);
-    font-weight: bold;
-    text-decoration: none;
-    text-align: center;
-}
-
-.headerTitle {
-    background-color: initial;
-    text-decoration: inherit;
-    color: inherit;
-    font-size: 3.8vh;
-}
-
-.header> :not(.headerTitle) {
-    background-color: initial;
-    text-decoration: initial;
-    color: inherit;
-    font-size: 2.4vh;
-    width: 35%;
-}
-
-.header> :not(.headerTitle):hover {
-    color: rgb(206, 206, 206);
-}
-
-.footer {
-    grid-area: footer;
-    background-color: var(--main-popout-color);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    height: 170%;
-}
-
-.footer>p {
-    background-color: initial;
-    color: var(--main-font-color);
-    font-weight: bold;
-    margin-top: 1vh;
-    font-size: 1.8vh;
-}
-
-.footer>div {
-    background-color: initial;
-    margin-top: 1vh;
-}
-
-.footer>div>button {
-    width: 5vh;
-    height: 5vh;
-    background-color: var(--main-button-color);
-    border: var(--main-button-border-color) solid var(--main-border-size);
-    border-radius: 50%;
-    margin-right: 1vw;
-}
-
-.footer>div>button>i {
-    color: var(--main-font-color);
-    background-color: inherit;
-    font-size: 1.8vh;
-}
-
-.footer>div>button:hover {
-    background-color: var(--main-hover-botton-color);
-    cursor: pointer;
-}
-
-.footer>a {
-    text-decoration: none;
-    background-color: inherit;
-    color: var(--main-font-color);
-    font-weight: bold;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
 }
 
 .content {
     display: grid;
     justify-content: center;
-    grid-template-columns: 100%;
     gap: 0px 0px;
     grid-auto-flow: row;
     grid-template-areas: "pImage" "pInfo";
@@ -156,7 +38,8 @@
     margin-top: 3vh;
     margin-right: 3vh;
     margin-left: 3vh;
-    height: 100%;
+    margin-bottom: 5vh;
+    overflow-y: hidden;
 }
 
 .pImage {
@@ -207,12 +90,8 @@
 }
 
 .pInfo {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 0.525fr 0.5fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    grid-template-areas: "titleDescription" "purchaseCartPriceStock";
+    display: flex;
+    flex-direction: column;
     grid-area: pInfo;
     overflow-y: hidden;
 }
@@ -234,9 +113,8 @@
 }
 
 .purchaseCartPriceStock {
-    grid-area: purchaseCartPriceStock;
+    margin-top: 2vw;
     overflow-y: hidden;
-    margin-top: 5vh;
     height: fit-content;
 }
 
@@ -314,16 +192,11 @@
         grid-auto-flow: row;
         grid-template-areas: "pImage pInfo";
         grid-area: content;
-        margin-top: 15vh;
-        margin-bottom: 0vh;
-        height: auto;
-    }
-    .container {
-        height: 100vh;
-        grid-template-rows: 10.5vh 78vh 9vh;
+        margin-top: 10vh;
+        height: 60vh;
     }
     .pImage {
-        height: 100%;
+        height: 35vw;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 0fr 0.5fr 0.5fr;
@@ -333,22 +206,9 @@
         grid-area: pImage;
     }
     .pInfo {
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 0.525fr 0.5fr;
-        gap: 0px 0px;
-        grid-auto-flow: row;
-        grid-template-areas: "titleDescription" "purchaseCartPriceStock";
-        grid-area: pInfo;
-    }
-    .footer {
-        grid-area: footer;
-        background-color: var(--main-popout-color);
         display: flex;
         flex-direction: column;
-        align-items: center;
-        margin-top: -1.9vh;
-        height: 150%;
+        grid-area: pInfo;
+        overflow-y: hidden;
     }
 }
