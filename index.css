@@ -16,6 +16,7 @@
     border-radius: var(--mainElement-border-radius);
     background-color: var(--main-popout-color);
     margin: var(--outer-margin-values);
+    height: 40vh;
 }
 
 .content>div {
@@ -25,12 +26,13 @@
     display: grid;
     place-items: center;
     overflow: hidden;
+    position: relative;
 }
 
 .content>div>img {
     width: 100%;
     min-height: 100%;
-    object-fit: fill;
+    object-fit: cover;
     height: max-content;
     border-radius: var(--mainElement-border-radius);
     filter: blur(3px);
@@ -41,7 +43,7 @@
     color: white;
     font-size: calc(14px + 2.4vw);
     font-weight: 900;
-    margin-bottom: 35vh;
+    top: 10vw;
     background-color: transparent;
     text-align: center;
 }
@@ -135,11 +137,14 @@
         gap: 0em 1em;
         margin: var(--outer-margin-values);
     }
+    .content {
+        height: 100vh;
+    }
     .content>div>p {
         position: absolute;
         color: white;
         font-weight: 900;
-        margin-bottom: 50vh;
+        top: 10vw;
         background-color: transparent;
         text-align: center;
     }
