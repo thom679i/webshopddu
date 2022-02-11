@@ -42,6 +42,11 @@
     gap: 1.25vw;
 }
 
+.productHolder>div>div>p {
+    display: grid;
+    place-content: center;
+}
+
 .productHolder>div>div>button {
     width: 3vh;
     height: 3vh;
