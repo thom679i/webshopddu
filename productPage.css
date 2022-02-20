@@ -207,7 +207,7 @@
         grid-template-areas: "pImage pInfo";
         grid-area: content;
         margin-top: 10vh;
-        height: 60vh;
+        height: 60.5vh;
     }
     .pImage {
         height: 35vw;

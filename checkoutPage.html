@@ -65,7 +65,7 @@
                 <button><i class="fa fa-facebook"></i></button>
                 <button><i class="fa fa-instagram"></i></button>
             </div>
-            <a href="tos.html">Terms Of Service</a>
+            <a href="tos.html">Terms Of Service / GDPR</a>
         </div>
     </div>
 </body>
@@ -74,24 +74,29 @@
     var cardNumber = document.getElementById('cardNumberInput');
 
     function checkLuhn() {
-        const isLuhnValid = function luhn(array) {
-            return function(number) {
-                let len = number ? number.length : 0,
-                    bit = 1,
-                    sum = 0;
-
-                while (len--) {
-                    sum += !(bit ^= 1) ? parseInt(number[len], 10) : array[number[len]];
+        digits = cardNumber.value.split("")
+        var sumOdd = 0;
+        var sumEven = 0;
+        //Get sum of odd numbers
+        for (var i = digits.length - 2; i >= 0; i -= 2) {
+            //Doubles every second digit from back
+            var doubledDigit = digits[i] * 2;
+            //If number has two digits, get cross sum.
+            if (doubledDigit > 9) {
+                while (doubledDigit) {
+                    sumOdd += doubledDigit % 10;
+                    doubledDigit = Math.floor(doubledDigit / 10);
                 }
-
-                return sum % 10 === 0 && sum > 0;
-            };
-        }([0, 2, 4, 6, 8, 1, 3, 5, 7, 9]);
-
-        //What to do if number is invalid/valid
-        if (isLuhnValid(cardNumber.value.split("")) == false) {
-            cardNumber.style = 'border: 2px solid red;';
-        } else cardNumber.style = '';
+            } else sumOdd += doubledDigit;
+        }
+        //Get sum of even numbers
+        for (var i = digits.length - 1; i >= 0; i -= 2) {
+            sumEven += parseInt(digits[i]);
+        }
+        //Final check & application
+        if ((sumOdd + sumEven) % 10 === 0 && digits[0] > 0) {
+            cardNumber.style = '';
+        } else cardNumber.style = 'border: 2px solid red;';
     }
 </script>
 

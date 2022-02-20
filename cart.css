@@ -15,7 +15,7 @@
     grid-area: content;
     display: flex;
     flex-direction: row;
-    height: 75vh;
+    height: 75.5vh;
 }
 
 .shoppingTitle {
@@ -141,7 +141,6 @@
         grid-area: content;
         display: flex;
         flex-direction: column;
-        height: 75vh;
     }
     .checkout {
         display: flex;
